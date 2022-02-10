@@ -6,18 +6,21 @@ function ItemDisplay(props){
   return (
     <React.Fragment>
       <hr/>
-      {props.itemList.map((item, index) =>
-        <Item name={item.name}
+      {props.itemList.map((item) =>
+        <Item whenItemClicked = { props.onItemSelection} 
+        name={item.name}
         price={item.price}
         quantity={item.quantity}
-        key={index}/>
+        id={item.id}
+        key={item.id}/>
       )}
     </React.Fragment>
   );
 }
 
 ItemDisplay.propTypes = {
-  itemList: PropTypes.array
+  itemList: PropTypes.array,
+  onItemSelection: PropTypes.func
 };
 
 export default ItemDisplay;
